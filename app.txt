@@ -1,0 +1,61 @@
+timeDifference: This is the difference of current time and user giving time in milliseconds.....
+---------------------------------------------------------------------------
+---------------------------------------------------------------------------
+
+const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+How it works:
+1000 * 60 * 60 * 24: This is the number of milliseconds in one day.
+1000 milliseconds per second
+60 seconds per minute
+60 minutes per hour
+24 hours per day
+
+Division: 
+timeDifference divided by the milliseconds per day gives the total number of days (including fractions).
+
+Math.floor():
+This function rounds down to the nearest whole number, so you get the number of full days.
+---------------------------------------------------------------------------
+
+const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+How it works:
+timeDifference % (1000 * 60 * 60 * 24): This gets the remaining milliseconds after removing the days.
+
+% is the modulus operator, which gives the remainder of timeDifference when divided by the milliseconds in a day.
+
+1000 * 60 * 60: This is the number of milliseconds in one hour.
+
+Division: The remaining milliseconds are divided by the milliseconds per hour to get the total number of hours (including fractions).
+
+Math.floor(): Rounds down to get the number of full hours.
+---------------------------------------------------------------------------
+
+const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+
+How it works:
+timeDifference % (1000 * 60 * 60): This gets the remaining milliseconds after removing the hours.
+
+% is used to find the remainder of timeDifference when divided by the milliseconds in an hour.
+
+1000 * 60: This is the number of milliseconds in one minute.
+
+Division: The remaining milliseconds are divided by the milliseconds per minute to get the total number of minutes (including fractions).
+
+Math.floor(): Rounds down to get the number of full minutes
+---------------------------------------------------------------------------
+
+const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+How it works:
+timeDifference % (1000 * 60): This gets the remaining milliseconds after removing the minutes.
+
+% is used to find the remainder of timeDifference when divided by the milliseconds in a minute.
+
+1000: This is the number of milliseconds in one second.
+
+Division: The remaining milliseconds are divided by 1000 to get the total number of seconds (including fractions).
+
+Math.floor(): Rounds down to get the number of full seconds.
+---------------------------------------------------------------------------
